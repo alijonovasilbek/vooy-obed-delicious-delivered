@@ -23,33 +23,74 @@ const HowItWorksSection = () => {
   const { ref, isInView } = useInView();
 
   return (
-    <section className="section-padding bg-secondary/30" ref={ref}>
+    <section className="section-padding overflow-hidden" ref={ref}>
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mt-2 mb-4">
+        <div className="text-center mb-20">
+          <h2 className="text-3xl md:text-5xl font-bold">
             Qanday <span className="text-primary italic">Buyurtma</span> Beraman?
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto">
-          {steps.map((s, i) => (
-            <div
-              key={s.title}
-              className={`group text-center glass rounded-3xl p-10 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 ${isInView ? "animate-fade-up" : "opacity-0"}`}
-              style={{ animationDelay: `${i * 0.2}s` }}
-            >
-              <div className="relative mx-auto mb-8 w-fit">
-                <div className="w-24 h-24 rounded-full bg-primary flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-primary/30">
-                  <s.icon className="text-primary-foreground" size={40} strokeWidth={1.8} />
+        {/* Desktop: horizontal timeline */}
+        <div className="hidden md:block max-w-4xl mx-auto relative">
+          {/* Connecting line */}
+          <div className="absolute top-12 left-[15%] right-[15%] h-[2px] bg-gradient-to-r from-primary/20 via-primary to-primary/20" />
+
+          <div className="flex justify-between relative">
+            {steps.map((s, i) => (
+              <div
+                key={s.title}
+                className={`flex flex-col items-center w-1/3 ${isInView ? "animate-fade-up" : "opacity-0"}`}
+                style={{ animationDelay: `${i * 0.25}s` }}
+              >
+                {/* Number + Icon circle */}
+                <div className="relative mb-8">
+                  <div className="w-24 h-24 rounded-full bg-primary flex items-center justify-center shadow-xl shadow-primary/25 hover:scale-110 transition-transform duration-300">
+                    <s.icon className="text-primary-foreground" size={38} strokeWidth={1.8} />
+                  </div>
+                  <span className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-foreground text-background text-sm font-bold flex items-center justify-center">
+                    {i + 1}
+                  </span>
                 </div>
-                <span className="absolute -top-1 -right-1 w-9 h-9 rounded-full bg-foreground text-background text-sm font-bold flex items-center justify-center shadow-md">
-                  {i + 1}
-                </span>
+
+                <h3 className="font-bold text-xl mb-2">{s.title}</h3>
+                <p className="text-muted-foreground text-center max-w-[200px]">{s.desc}</p>
               </div>
-              <h3 className="font-bold text-xl mb-3">{s.title}</h3>
-              <p className="text-muted-foreground">{s.desc}</p>
-            </div>
-          ))}
+            ))}
+          </div>
+        </div>
+
+        {/* Mobile: vertical timeline */}
+        <div className="md:hidden relative pl-16 max-w-sm mx-auto">
+          {/* Vertical line */}
+          <div className="absolute left-[27px] top-0 bottom-0 w-[2px] bg-gradient-to-b from-primary via-primary/60 to-primary/20" />
+
+          <div className="flex flex-col gap-14">
+            {steps.map((s, i) => (
+              <div
+                key={s.title}
+                className={`relative flex items-start gap-5 ${isInView ? "animate-fade-up" : "opacity-0"}`}
+                style={{ animationDelay: `${i * 0.2}s` }}
+              >
+                {/* Icon on the line */}
+                <div className="absolute -left-16 top-0">
+                  <div className="relative">
+                    <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/25">
+                      <s.icon className="text-primary-foreground" size={24} strokeWidth={1.8} />
+                    </div>
+                    <span className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-foreground text-background text-xs font-bold flex items-center justify-center">
+                      {i + 1}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="pt-2">
+                  <h3 className="font-bold text-lg mb-1">{s.title}</h3>
+                  <p className="text-muted-foreground text-sm">{s.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
