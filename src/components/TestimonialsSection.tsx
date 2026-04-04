@@ -65,13 +65,19 @@ const TestimonialsSection = () => {
   const { ref, isInView } = useInView();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
   const trackRef = useRef<HTMLDivElement>(null);
 
-  const visibleCount = typeof window !== "undefined" && window.innerWidth >= 768 ? 3 : 1;
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
-  // We duplicate items for seamless infinite scroll
-  const extendedItems = [...testimonials, ...testimonials.slice(0, visibleCount)];
+  const visibleCount = isMobile ? 1 : 3;
   const totalReal = testimonials.length;
+  const extendedItems = [...testimonials, ...testimonials.slice(0, visibleCount)];
 
   const next = useCallback(() => {
     setIsTransitioning(true);
@@ -83,21 +89,14 @@ const TestimonialsSection = () => {
     setCurrentIndex((prev) => prev - 1);
   }, []);
 
-  // When we reach the cloned end, snap back without animation
   useEffect(() => {
     if (currentIndex >= totalReal) {
-      const timeout = setTimeout(() => {
-        setIsTransitioning(false);
-        setCurrentIndex(0);
-      }, 500);
-      return () => clearTimeout(timeout);
+      const t = setTimeout(() => { setIsTransitioning(false); setCurrentIndex(0); }, 500);
+      return () => clearTimeout(t);
     }
     if (currentIndex < 0) {
-      const timeout = setTimeout(() => {
-        setIsTransitioning(false);
-        setCurrentIndex(totalReal - 1);
-      }, 500);
-      return () => clearTimeout(timeout);
+      const t = setTimeout(() => { setIsTransitioning(false); setCurrentIndex(totalReal - 1); }, 500);
+      return () => clearTimeout(t);
     }
   }, [currentIndex, totalReal]);
 
@@ -121,54 +120,53 @@ const TestimonialsSection = () => {
           </p>
         </div>
 
-        <div className="relative max-w-5xl mx-auto px-8 md:px-0">
+        <div className="relative max-w-5xl mx-auto">
+          {/* Arrows — hidden on mobile */}
           <button
             onClick={prev}
-            className="absolute left-0 md:-left-12 top-1/2 -translate-y-1/2 z-10 w-9 h-9 md:w-10 md:h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
+            className="hidden md:flex absolute -left-12 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-primary text-primary-foreground items-center justify-center shadow-lg hover:scale-110 transition-transform"
           >
-            <ChevronLeft size={18} />
+            <ChevronLeft size={20} />
           </button>
           <button
             onClick={next}
-            className="absolute right-0 md:-right-12 top-1/2 -translate-y-1/2 z-10 w-9 h-9 md:w-10 md:h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
+            className="hidden md:flex absolute -right-12 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-primary text-primary-foreground items-center justify-center shadow-lg hover:scale-110 transition-transform"
           >
-            <ChevronRight size={18} />
+            <ChevronRight size={20} />
           </button>
 
           <div className="overflow-hidden">
             <div
               ref={trackRef}
               className={`flex ${isTransitioning ? "transition-transform duration-500 ease-in-out" : ""}`}
-              style={{
-                transform: `translateX(-${currentIndex * (100 / visibleCount)}%)`,
-              }}
+              style={{ transform: `translateX(-${currentIndex * (100 / visibleCount)}%)` }}
             >
               {extendedItems.map((t, i) => (
                 <div
                   key={`${t.name}-${i}`}
-                  className="flex-shrink-0 px-3"
+                  className="flex-shrink-0 px-2 md:px-3"
                   style={{ width: `${100 / visibleCount}%` }}
                 >
                   <div
-                    className={`bg-background border border-border rounded-2xl p-8 h-full shadow-sm ${
+                    className={`bg-background border border-border rounded-2xl p-5 md:p-8 shadow-sm ${
                       isInView ? "animate-fade-up" : "opacity-0"
                     }`}
                     style={{ animationDelay: `${(i % visibleCount) * 0.08}s` }}
                   >
-                    <div className="flex gap-1 mb-4">
+                    <div className="flex gap-1 mb-3">
                       {Array.from({ length: t.stars }).map((_, j) => (
-                        <Star key={j} size={16} className="fill-primary text-primary" />
+                        <Star key={j} size={14} className="fill-primary text-primary" />
                       ))}
                     </div>
-                    <p className="text-foreground/80 mb-6 leading-relaxed text-sm">"{t.text}"</p>
+                    <p className="text-foreground/80 mb-4 leading-relaxed text-sm line-clamp-4">"{t.text}"</p>
                     <div className="flex items-center gap-3">
                       <img
                         src={t.avatar}
                         alt={t.name}
-                        className="w-10 h-10 rounded-full object-cover border-2 border-primary/20"
+                        className="w-9 h-9 rounded-full object-cover border-2 border-primary/20 shrink-0"
                         loading="lazy"
-                        width={40}
-                        height={40}
+                        width={36}
+                        height={36}
                       />
                       <div>
                         <p className="font-bold text-sm">{t.name}</p>
@@ -181,16 +179,14 @@ const TestimonialsSection = () => {
             </div>
           </div>
 
-          <div className="flex justify-center gap-2 mt-8">
+          {/* Dots */}
+          <div className="flex justify-center gap-2 mt-6">
             {Array.from({ length: totalReal }).map((_, i) => (
               <button
                 key={i}
-                onClick={() => {
-                  setIsTransitioning(true);
-                  setCurrentIndex(i);
-                }}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  i === realIndex ? "bg-primary w-6" : "bg-muted-foreground/30"
+                onClick={() => { setIsTransitioning(true); setCurrentIndex(i); }}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  i === realIndex ? "bg-primary w-6" : "bg-muted-foreground/30 w-2"
                 }`}
               />
             ))}
