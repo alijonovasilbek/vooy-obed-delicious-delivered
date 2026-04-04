@@ -29,20 +29,17 @@ const ContactSection = () => {
         >
           <a
             href="tel:+998333161313"
-            className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-8 py-5 rounded-2xl text-lg font-bold hover:scale-105 transition-transform shadow-lg shadow-primary/25 min-w-[220px] justify-center"
+            className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-8 py-4 rounded-2xl text-lg font-bold hover:scale-105 transition-transform shadow-lg shadow-primary/25 w-full sm:w-auto justify-center"
           >
             <Phone size={22} />
-            <div className="text-left">
-              <div className="text-xs font-normal opacity-80">Qo'ng'iroq</div>
-              <div>+998 33 316 13 13</div>
-            </div>
+            +998 33 316 13 13
           </a>
 
           <a
             href="https://t.me/vooyobed"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-foreground text-background px-8 py-5 rounded-2xl text-lg font-bold hover:scale-105 transition-transform shadow-lg min-w-[220px] justify-center"
+            className="inline-flex items-center gap-3 bg-foreground text-background px-8 py-4 rounded-2xl text-lg font-bold hover:scale-105 transition-transform shadow-lg w-full sm:w-auto justify-center"
           >
             <Send size={22} />
             Telegram
@@ -52,7 +49,7 @@ const ContactSection = () => {
             href="https://instagram.com/vooyobed"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 glass-strong px-8 py-5 rounded-2xl text-lg font-bold hover:scale-105 transition-transform min-w-[220px] justify-center"
+            className="inline-flex items-center gap-3 glass-strong px-8 py-4 rounded-2xl text-lg font-bold hover:scale-105 transition-transform w-full sm:w-auto justify-center"
           >
             <Instagram size={22} />
             Instagram

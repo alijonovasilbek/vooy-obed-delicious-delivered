@@ -47,7 +47,7 @@ const StatItem = ({ stat, index, isInView }: { stat: typeof stats[0]; index: num
       className={`text-center ${isInView ? "animate-count-up" : "opacity-0"}`}
       style={{ animationDelay: `${index * 0.15}s` }}
     >
-      <div className="text-3xl md:text-5xl font-black text-primary mb-2">
+      <div className="text-2xl md:text-5xl font-black text-primary mb-2 whitespace-nowrap">
         {formatted}{stat.suffix}
       </div>
       <p className="text-muted-foreground text-sm font-medium">{stat.label}</p>
@@ -61,8 +61,8 @@ const StatsSection = () => {
   return (
     <section className="py-20" ref={ref}>
       <div className="container mx-auto px-4">
-        <div className="glass-strong rounded-3xl p-10 md:p-16 max-w-5xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="glass-strong rounded-3xl p-8 md:p-16 max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {stats.map((s, i) => (
               <StatItem key={s.label} stat={s} index={i} isInView={isInView} />
             ))}

@@ -81,7 +81,7 @@ const FAQSection = () => {
             href="#contact"
             className="inline-flex bg-primary text-primary-foreground px-8 py-3.5 rounded-full font-bold hover:scale-105 transition-transform"
           >
-            Qo'llab-quvvatlash bilan bog'lanish
+            Bog'lanish
           </a>
         </div>
       </div>
