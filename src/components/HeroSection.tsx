@@ -72,12 +72,15 @@ const HeroSection = () => {
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-        <div className="glass-dark inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8 animate-fade-up">
+        {/* Hide on mobile, show on md+ */}
+        <div className="hidden md:inline-flex glass-dark items-center gap-2 px-4 py-2 rounded-full mb-8 animate-fade-up">
           <img src="/logo.svg" alt="Vooy Obed" className="w-6 h-6 rounded-full" />
           <span className="text-primary-foreground font-semibold text-sm">
             <span className="text-primary">Vooy</span> Obed
           </span>
         </div>
+        {/* Mobile spacer instead of badge */}
+        <div className="block md:hidden mb-6" />
 
         <h1
           className="text-5xl md:text-7xl lg:text-8xl font-black text-primary-foreground mb-6 leading-tight animate-fade-up"
@@ -118,7 +121,7 @@ const HeroSection = () => {
             href="https://t.me/vooyobedadmin"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 glass text-primary-foreground px-5 py-3 rounded-full text-sm font-medium hover:scale-105 transition-transform"
+            className="hidden md:inline-flex items-center gap-2 glass text-primary-foreground px-5 py-3 rounded-full text-sm font-medium hover:scale-105 transition-transform"
           >
             <Send size={16} />
             Telegram

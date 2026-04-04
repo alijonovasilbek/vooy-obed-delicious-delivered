@@ -63,23 +63,23 @@ const MenuSection = () => {
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
-              <div className="p-3 md:p-5">
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="font-bold text-sm md:text-base">{item.name}</h3>
-                  <span className="text-primary font-bold text-xs md:text-sm whitespace-nowrap ml-1">
-                    {item.price} so'm
-                  </span>
-                </div>
-                <div className="flex flex-wrap gap-1">
+              <div className="p-3">
+                <h3 className="font-bold text-sm mb-1 leading-tight">{item.name}</h3>
+                {/* Tags in 2×2 grid */}
+                <div className="grid grid-cols-2 gap-1 mb-2">
                   {bonusTags.map(({ label, icon: Icon }) => (
                     <span
                       key={label}
-                      className="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-full bg-secondary text-muted-foreground font-medium"
+                      className="inline-flex items-center gap-1 text-xs px-1.5 py-0.5 rounded-full bg-secondary text-muted-foreground font-medium"
                     >
-                      <Icon size={10} />
+                      <Icon size={9} />
                       {label}
                     </span>
                   ))}
+                </div>
+                {/* Price on its own line */}
+                <div className="text-primary font-black text-sm">
+                  {item.price} so'm
                 </div>
               </div>
             </div>
@@ -88,7 +88,6 @@ const MenuSection = () => {
 
         {/* Bonus & Sunday banners below cards */}
         <div className="max-w-2xl mx-auto flex flex-col gap-3">
-          {/* Bonus info */}
           <div className="flex flex-wrap items-center justify-center gap-2 bg-primary/10 border border-primary/20 rounded-2xl px-5 py-3">
             <Gift size={16} className="text-primary shrink-0" />
             <span className="text-sm font-semibold text-primary">Har bir setga bonus:</span>
@@ -103,7 +102,6 @@ const MenuSection = () => {
             ))}
           </div>
 
-          {/* Sunday notice */}
           <div className="flex items-center justify-center gap-2 bg-amber-50 border border-amber-200 rounded-2xl px-5 py-3">
             <CalendarX size={16} className="text-amber-600 shrink-0" />
             <span className="text-sm text-amber-700 font-medium">
