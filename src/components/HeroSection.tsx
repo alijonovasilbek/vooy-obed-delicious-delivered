@@ -12,7 +12,7 @@ const HeroSection = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % images.length);
-    }, 5000);
+    }, 6000);
     return () => clearInterval(timer);
   }, []);
 
@@ -26,7 +26,7 @@ const HeroSection = () => {
           alt="Uzbek cuisine"
           width={1920}
           height={1080}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[2000ms] ease-in-out ${
             i === current ? "opacity-100" : "opacity-0"
           }`}
         />
