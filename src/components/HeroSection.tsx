@@ -72,15 +72,13 @@ const HeroSection = () => {
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-        {/* Hide on mobile, show on md+ */}
+        {/* Hide badge on mobile */}
         <div className="hidden md:inline-flex glass-dark items-center gap-2 px-4 py-2 rounded-full mb-8 animate-fade-up">
           <img src="/logo.svg" alt="Vooy Obed" className="w-6 h-6 rounded-full" />
           <span className="text-primary-foreground font-semibold text-sm">
             <span className="text-primary">Vooy</span> Obed
           </span>
         </div>
-        {/* Mobile spacer instead of badge */}
-        <div className="block md:hidden mb-6" />
 
         <h1
           className="text-5xl md:text-7xl lg:text-8xl font-black text-primary-foreground mb-6 leading-tight animate-fade-up"

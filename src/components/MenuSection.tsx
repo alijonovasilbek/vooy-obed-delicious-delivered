@@ -44,7 +44,7 @@ const MenuSection = () => {
         </div>
 
         {/* Menu grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-6xl mx-auto mb-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 max-w-6xl mx-auto mb-8">
           {menuItems.map((item, i) => (
             <div
               key={item.name}
@@ -53,20 +53,26 @@ const MenuSection = () => {
               }`}
               style={{ animationDelay: `${i * 0.08}s` }}
             >
+              {/* Square image */}
               <div className="aspect-square overflow-hidden">
                 <img
                   src={item.img}
                   alt={item.name}
                   loading="lazy"
-                  width={640}
-                  height={640}
+                  width={400}
+                  height={400}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
+
+              {/* Card body */}
               <div className="p-3">
-                <h3 className="font-bold text-sm mb-1 leading-tight">{item.name}</h3>
-                {/* Tags in 2×2 grid */}
-                <div className="grid grid-cols-2 gap-1 mb-2">
+                {/* Name */}
+                <h3 className="font-bold text-sm leading-tight mb-1">{item.name}</h3>
+                {/* Price */}
+                <p className="text-primary font-bold text-sm mb-2">{item.price} so'm</p>
+                {/* Bonus tags — 2 per row */}
+                <div className="grid grid-cols-2 gap-1">
                   {bonusTags.map(({ label, icon: Icon }) => (
                     <span
                       key={label}
@@ -77,10 +83,6 @@ const MenuSection = () => {
                     </span>
                   ))}
                 </div>
-                {/* Price on its own line */}
-                <div className="text-primary font-black text-sm">
-                  {item.price} so'm
-                </div>
               </div>
             </div>
           ))}
@@ -88,23 +90,25 @@ const MenuSection = () => {
 
         {/* Bonus & Sunday banners below cards */}
         <div className="max-w-2xl mx-auto flex flex-col gap-3">
-          <div className="flex flex-wrap items-center justify-center gap-2 bg-primary/10 border border-primary/20 rounded-2xl px-5 py-3">
-            <Gift size={16} className="text-primary shrink-0" />
+          {/* Bonus info */}
+          <div className="flex flex-wrap items-center justify-center gap-2 bg-primary/10 border border-primary/20 rounded-2xl px-4 py-3">
+            <Gift size={15} className="text-primary shrink-0" />
             <span className="text-sm font-semibold text-primary">Har bir setga bonus:</span>
             {bonusTags.map(({ label, icon: Icon }) => (
               <span
                 key={label}
                 className="inline-flex items-center gap-1 text-xs px-2.5 py-1 rounded-full bg-primary text-primary-foreground font-medium"
               >
-                <Icon size={11} />
+                <Icon size={10} />
                 {label}
               </span>
             ))}
           </div>
 
-          <div className="flex items-center justify-center gap-2 bg-amber-50 border border-amber-200 rounded-2xl px-5 py-3">
-            <CalendarX size={16} className="text-amber-600 shrink-0" />
-            <span className="text-sm text-amber-700 font-medium">
+          {/* Sunday notice */}
+          <div className="flex items-center justify-center gap-2 bg-amber-50 border border-amber-200 rounded-2xl px-4 py-3">
+            <CalendarX size={15} className="text-amber-600 shrink-0" />
+            <span className="text-sm text-amber-700 font-medium text-center">
               Har <strong>yakshanba</strong> — tozalik kuni 🧹 Zakazlar qabul qilinmaydi
             </span>
           </div>
