@@ -104,24 +104,24 @@ const HeroSection = () => {
         </p>
 
         <div
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up"
+          className="flex flex-row items-center justify-center gap-3 animate-fade-up flex-wrap"
           style={{ animationDelay: "0.55s" }}
         >
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full text-lg font-bold hover:scale-105 transition-transform shadow-lg shadow-primary/30"
+            className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full text-sm md:text-base font-bold hover:scale-105 transition-transform shadow-lg shadow-primary/30"
           >
-            <CalendarCheck size={20} />
+            <CalendarCheck size={18} />
             Buyurtma berish
           </a>
           <a
-            href="https://t.me/vooyobed"
+            href="https://t.me/vooyobedadmin"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 glass text-primary-foreground px-8 py-4 rounded-full text-lg font-medium hover:scale-105 transition-transform"
+            className="inline-flex items-center gap-2 glass text-primary-foreground px-6 py-3 rounded-full text-sm md:text-base font-medium hover:scale-105 transition-transform"
           >
-            <Send size={20} />
-            Telegram orqali yozish
+            <Send size={18} />
+            Telegram
           </a>
         </div>
       </div>

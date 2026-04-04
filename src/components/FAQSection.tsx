@@ -10,7 +10,7 @@ import { useInView } from "./useInView";
 const faqs = [
   {
     q: "Buyurtmani qanday berish mumkin?",
-    a: "Telefon orqali (+998 33 316 13 13) qo'ng'iroq qiling yoki Telegram (@vooyobed) orqali yozing. Biz tezda javob beramiz!",
+    a: "Telegram orqali @vooyobedadmin ga yozing. Biz tezda javob beramiz!",
   },
   {
     q: "Yetkazib berish qaysi hududlarga amalga oshiriladi?",
@@ -18,11 +18,11 @@ const faqs = [
   },
   {
     q: "Minimal buyurtma summasi qancha?",
-    a: "Minimal buyurtma summasi 40 000 so'm. Har bir set tarkibida taom, non, salat va suv bor.",
+    a: "Minimal buyurtma summasi 40 000 so'm. Har bir set tarkibida taom, non, salat va suv bonus sifatida beriladi.",
   },
   {
     q: "Yetkazib berish bepulmi?",
-    a: "Ha! 40 000 so'mdan yuqori buyurtmalarga yetkazib berish mutlaqo bepul.",
+    a: "Har kungi bonuslar va ma'lum summadan oshgan buyurtmalar uchun yetkazib berish pullik. To'liq ma'lumot uchun @vooyobedadmin ga yozing.",
   },
   {
     q: "Menyu har kuni o'zgaradimi?",
@@ -31,6 +31,10 @@ const faqs = [
   {
     q: "To'lov qanday usulda amalga oshiriladi?",
     a: "Naqd pul, Click, Payme va bank kartasi orqali to'lash mumkin.",
+  },
+  {
+    q: "Yakshanba kunlari ham ishlaysizmi?",
+    a: "Yo'q. Har yakshanba — tozalik kuni! Bu kunda zakazlar qabul qilinmaydi. Dam olish kunimizni tushunganingiz uchun rahmat 🧹",
   },
 ];
 
