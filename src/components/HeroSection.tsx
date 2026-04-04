@@ -1,20 +1,37 @@
+import { useState, useEffect } from "react";
 import { CalendarCheck, Send } from "lucide-react";
-import heroBg from "@/assets/hero-bg.jpg";
+import heroBg1 from "@/assets/hero-bg.jpg";
+import heroBg2 from "@/assets/hero-bg-2.jpg";
+import heroBg3 from "@/assets/hero-bg-3.jpg";
+
+const images = [heroBg1, heroBg2, heroBg3];
 
 const HeroSection = () => {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % images.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0">
+      {/* Background images with crossfade */}
+      {images.map((src, i) => (
         <img
-          src={heroBg}
-          alt="Uzbek cuisine spread"
+          key={i}
+          src={src}
+          alt="Uzbek cuisine"
           width={1920}
           height={1080}
-          className="w-full h-full object-cover"
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
+            i === current ? "opacity-100" : "opacity-0"
+          }`}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
-      </div>
+      ))}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
