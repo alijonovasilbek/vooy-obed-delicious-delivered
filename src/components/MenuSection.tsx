@@ -38,35 +38,13 @@ const MenuSection = () => {
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
             Bugungi <span className="text-primary">menyu</span>
           </h2>
-          <p className="text-muted-foreground text-lg mb-6">
+          <p className="text-muted-foreground text-lg">
             Har bir taom — sevgi bilan tayyorlangan
           </p>
-
-          {/* Bonus info */}
-          <div className="inline-flex flex-wrap items-center justify-center gap-2 bg-primary/10 border border-primary/20 rounded-2xl px-5 py-3 mb-4">
-            <Gift size={16} className="text-primary shrink-0" />
-            <span className="text-sm font-semibold text-primary">Har bir setga bonus:</span>
-            {bonusTags.map(({ label, icon: Icon }) => (
-              <span
-                key={label}
-                className="inline-flex items-center gap-1 text-xs px-2.5 py-1 rounded-full bg-primary text-primary-foreground font-medium"
-              >
-                <Icon size={11} />
-                {label}
-              </span>
-            ))}
-          </div>
-
-          {/* Sunday notice */}
-          <div className="flex items-center justify-center gap-2 bg-amber-50 border border-amber-200 rounded-2xl px-5 py-3 max-w-md mx-auto">
-            <CalendarX size={16} className="text-amber-600 shrink-0" />
-            <span className="text-sm text-amber-700 font-medium">
-              Har <strong>yakshanba</strong> — tozalik kuni 🧹 Zakazlar qabul qilinmaydi
-            </span>
-          </div>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-6xl mx-auto">
+        {/* Menu grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-6xl mx-auto mb-8">
           {menuItems.map((item, i) => (
             <div
               key={item.name}
@@ -106,6 +84,32 @@ const MenuSection = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Bonus & Sunday banners below cards */}
+        <div className="max-w-2xl mx-auto flex flex-col gap-3">
+          {/* Bonus info */}
+          <div className="flex flex-wrap items-center justify-center gap-2 bg-primary/10 border border-primary/20 rounded-2xl px-5 py-3">
+            <Gift size={16} className="text-primary shrink-0" />
+            <span className="text-sm font-semibold text-primary">Har bir setga bonus:</span>
+            {bonusTags.map(({ label, icon: Icon }) => (
+              <span
+                key={label}
+                className="inline-flex items-center gap-1 text-xs px-2.5 py-1 rounded-full bg-primary text-primary-foreground font-medium"
+              >
+                <Icon size={11} />
+                {label}
+              </span>
+            ))}
+          </div>
+
+          {/* Sunday notice */}
+          <div className="flex items-center justify-center gap-2 bg-amber-50 border border-amber-200 rounded-2xl px-5 py-3">
+            <CalendarX size={16} className="text-amber-600 shrink-0" />
+            <span className="text-sm text-amber-700 font-medium">
+              Har <strong>yakshanba</strong> — tozalik kuni 🧹 Zakazlar qabul qilinmaydi
+            </span>
+          </div>
         </div>
       </div>
     </section>

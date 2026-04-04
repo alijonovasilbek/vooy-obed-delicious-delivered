@@ -87,12 +87,12 @@ const HeroSection = () => {
         </h1>
 
         <div
-          className="glass-dark inline-flex items-center gap-2 px-5 py-2.5 rounded-full mb-6 animate-fade-up"
+          className="glass-dark inline-flex items-center gap-2 px-4 py-2.5 rounded-full mb-6 animate-fade-up whitespace-nowrap"
           style={{ animationDelay: "0.3s" }}
         >
-          <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-          <span className="text-primary-foreground/90 text-sm font-medium">
-            09:00 – 14:00 | Yetkazish: 12:30 – 13:30
+          <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse shrink-0" />
+          <span className="text-primary-foreground/90 text-xs md:text-sm font-medium">
+            09:00 – 14:00 &nbsp;|&nbsp; Yetkazish: 12:30 – 13:30
           </span>
         </div>
 
@@ -104,23 +104,23 @@ const HeroSection = () => {
         </p>
 
         <div
-          className="flex flex-row items-center justify-center gap-3 animate-fade-up flex-wrap"
+          className="flex flex-row items-center justify-center gap-3 animate-fade-up"
           style={{ animationDelay: "0.55s" }}
         >
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full text-sm md:text-base font-bold hover:scale-105 transition-transform shadow-lg shadow-primary/30"
+            className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-5 py-3 rounded-full text-sm font-bold hover:scale-105 transition-transform shadow-lg shadow-primary/30"
           >
-            <CalendarCheck size={18} />
+            <CalendarCheck size={16} />
             Buyurtma berish
           </a>
           <a
             href="https://t.me/vooyobedadmin"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 glass text-primary-foreground px-6 py-3 rounded-full text-sm md:text-base font-medium hover:scale-105 transition-transform"
+            className="inline-flex items-center gap-2 glass text-primary-foreground px-5 py-3 rounded-full text-sm font-medium hover:scale-105 transition-transform"
           >
-            <Send size={18} />
+            <Send size={16} />
             Telegram
           </a>
         </div>
