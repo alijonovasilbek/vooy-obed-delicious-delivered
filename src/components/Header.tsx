@@ -27,10 +27,9 @@ const Header = () => {
       <div className="container mx-auto flex items-center justify-between px-4 md:px-8">
         <a href="#" className="flex items-center gap-2 text-xl font-bold">
           <img
-            src="https://instagram.fbze2-1.fna.fbcdn.net/v/t51.2885-19/457288872_891453429685268_8633200824892464891_n.jpg?stp=dst-jpg_s150x150_tt6&_nc_ht=instagram.fbze2-1.fna.fbcdn.net&_nc_cat=110&_nc_oc=Q6cZ2AHSEMwJyBlKiGQRm5E6b7sJMCCqwvIoN9l4L-fRjEYRo2J6m3PMlPIzMEJjN6gXIELWWBxFPm4CyzmIFw5d_f8C&_nc_ohc=j2BwlLPFZdsQ7kNvgFKAFCo&_nc_gid=KarLwnlbSXFfZcS5t-B5MQ&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AYHqhWBjZKMF-sZJ-Tv-LFDlHaViNn32hS_PFBvneFOIKw&oe=6848A9A2&_nc_sid=8b3546"
+            src="/logo.svg"
             alt="Vooy Obed"
             className="w-8 h-8 rounded-full object-cover"
-            onError={(e) => { (e.target as HTMLImageElement).style.display='none'; }}
           />
           <span className={scrolled ? "text-foreground" : "text-primary-foreground"}>
             <span className="text-primary">Vooy</span> Obed

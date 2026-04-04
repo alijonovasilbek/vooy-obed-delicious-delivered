@@ -73,7 +73,7 @@ const HeroSection = () => {
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
         <div className="glass-dark inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8 animate-fade-up">
-          <span className="text-lg">🍛</span>
+          <img src="/logo.svg" alt="Vooy Obed" className="w-6 h-6 rounded-full" />
           <span className="text-primary-foreground font-semibold text-sm">
             <span className="text-primary">Vooy</span> Obed
           </span>
