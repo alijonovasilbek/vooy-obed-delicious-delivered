@@ -85,7 +85,7 @@ const MenuSection = () => {
         {/* Info strip — styled like section content, not floating banners */}
         <div className="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* Bonus info */}
-          <div className="flex items-start gap-4 bg-background rounded-2xl p-5 border border-border shadow-sm">
+          <div className={`flex items-start gap-4 bg-background rounded-2xl p-5 border border-border shadow-sm ${isInView ? "animate-fade-left" : "opacity-0"}`} style={{ animationDelay: "0.3s" }}>
             <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
               <Utensils size={18} className="text-primary" />
             </div>
@@ -106,7 +106,7 @@ const MenuSection = () => {
           </div>
 
           {/* Sunday notice */}
-          <div className="flex items-start gap-4 bg-background rounded-2xl p-5 border border-border shadow-sm">
+          <div className={`flex items-start gap-4 bg-background rounded-2xl p-5 border border-border shadow-sm ${isInView ? "animate-fade-right" : "opacity-0"}`} style={{ animationDelay: "0.45s" }}>
             <div className="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center shrink-0">
               <CalendarX size={18} className="text-amber-600" />
             </div>

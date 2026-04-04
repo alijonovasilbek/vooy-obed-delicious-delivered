@@ -44,7 +44,7 @@ const FeaturesSection = () => {
             <div
               key={f.title}
               className={`glass-strong rounded-2xl p-8 text-center hover-lift cursor-default ${
-                isInView ? "animate-fade-up" : "opacity-0"
+                isInView ? "animate-zoom-in" : "opacity-0"
               }`}
               style={{ animationDelay: `${i * 0.12}s` }}
             >
