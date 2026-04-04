@@ -8,30 +8,67 @@ const images = [heroBg1, heroBg2, heroBg3];
 
 const HeroSection = () => {
   const [current, setCurrent] = useState(0);
+  const [prev, setPrev] = useState<number | null>(null);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % images.length);
-    }, 6000);
+      setPrev(current);
+      setCurrent((p) => (p + 1) % images.length);
+    }, 8000);
     return () => clearInterval(timer);
-  }, []);
+  }, [current]);
+
+  // Clear prev after transition completes
+  useEffect(() => {
+    if (prev === null) return;
+    const t = setTimeout(() => setPrev(null), 3000);
+    return () => clearTimeout(t);
+  }, [prev]);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background images with crossfade */}
-      {images.map((src, i) => (
-        <img
-          key={i}
-          src={src}
-          alt="Uzbek cuisine"
-          width={1920}
-          height={1080}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[2000ms] ease-in-out ${
-            i === current ? "opacity-100" : "opacity-0"
-          }`}
-        />
-      ))}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
+      {/* Background images with Ken Burns effect */}
+      {images.map((src, i) => {
+        const isActive = i === current;
+        const isPrev = i === prev;
+        const isVisible = isActive || isPrev;
+
+        return (
+          <div
+            key={i}
+            className="absolute inset-0"
+            style={{
+              opacity: isActive ? 1 : isPrev ? 0 : 0,
+              transition: "opacity 3s ease-in-out",
+              zIndex: isActive ? 2 : isPrev ? 1 : 0,
+            }}
+          >
+            {isVisible && (
+              <img
+                src={src}
+                alt="Uzbek cuisine"
+                width={1920}
+                height={1080}
+                className="w-full h-full object-cover"
+                style={{
+                  animation: isActive ? "kenBurnsIn 11s ease-out forwards" : undefined,
+                  transform: isPrev ? "scale(1.15)" : "scale(1)",
+                }}
+              />
+            )}
+          </div>
+        );
+      })}
+
+      {/* Ken Burns keyframes */}
+      <style>{`
+        @keyframes kenBurnsIn {
+          0% { transform: scale(1); }
+          100% { transform: scale(1.15); }
+        }
+      `}</style>
+
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70 z-[3]" />
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
@@ -90,7 +127,7 @@ const HeroSection = () => {
       </div>
 
       {/* Bottom scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float z-10">
         <div className="w-6 h-10 rounded-full border-2 border-primary-foreground/40 flex items-start justify-center p-1.5">
           <div className="w-1.5 h-3 rounded-full bg-primary-foreground/60 animate-pulse" />
         </div>
