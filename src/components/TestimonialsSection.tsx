@@ -1,6 +1,6 @@
 import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 import { useInView } from "./useInView";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 
 const testimonials = [
   {
@@ -64,25 +64,52 @@ const testimonials = [
 const TestimonialsSection = () => {
   const { ref, isInView } = useInView();
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(true);
+  const trackRef = useRef<HTMLDivElement>(null);
 
   const visibleCount = typeof window !== "undefined" && window.innerWidth >= 768 ? 3 : 1;
-  const maxIndex = testimonials.length - visibleCount;
+
+  // We duplicate items for seamless infinite scroll
+  const extendedItems = [...testimonials, ...testimonials.slice(0, visibleCount)];
+  const totalReal = testimonials.length;
 
   const next = useCallback(() => {
-    setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
-  }, [maxIndex]);
+    setIsTransitioning(true);
+    setCurrentIndex((prev) => prev + 1);
+  }, []);
 
   const prev = useCallback(() => {
-    setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
-  }, [maxIndex]);
+    setIsTransitioning(true);
+    setCurrentIndex((prev) => prev - 1);
+  }, []);
+
+  // When we reach the cloned end, snap back without animation
+  useEffect(() => {
+    if (currentIndex >= totalReal) {
+      const timeout = setTimeout(() => {
+        setIsTransitioning(false);
+        setCurrentIndex(0);
+      }, 500);
+      return () => clearTimeout(timeout);
+    }
+    if (currentIndex < 0) {
+      const timeout = setTimeout(() => {
+        setIsTransitioning(false);
+        setCurrentIndex(totalReal - 1);
+      }, 500);
+      return () => clearTimeout(timeout);
+    }
+  }, [currentIndex, totalReal]);
 
   useEffect(() => {
     const timer = setInterval(next, 4000);
     return () => clearInterval(timer);
   }, [next]);
 
+  const realIndex = ((currentIndex % totalReal) + totalReal) % totalReal;
+
   return (
-    <section className="section-padding bg-secondary/50" ref={ref}>
+    <section className="section-padding bg-background" ref={ref}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <span className="text-primary font-semibold text-sm uppercase tracking-wider">Fikrlar</span>
@@ -95,7 +122,6 @@ const TestimonialsSection = () => {
         </div>
 
         <div className="relative max-w-5xl mx-auto">
-          {/* Navigation buttons */}
           <button
             onClick={prev}
             className="absolute -left-4 md:-left-12 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
@@ -109,25 +135,25 @@ const TestimonialsSection = () => {
             <ChevronRight size={20} />
           </button>
 
-          {/* Cards carousel */}
           <div className="overflow-hidden">
             <div
-              className="flex transition-transform duration-500 ease-in-out"
+              ref={trackRef}
+              className={`flex ${isTransitioning ? "transition-transform duration-500 ease-in-out" : ""}`}
               style={{
                 transform: `translateX(-${currentIndex * (100 / visibleCount)}%)`,
               }}
             >
-              {testimonials.map((t, i) => (
+              {extendedItems.map((t, i) => (
                 <div
-                  key={t.name}
+                  key={`${t.name}-${i}`}
                   className="flex-shrink-0 px-3"
                   style={{ width: `${100 / visibleCount}%` }}
                 >
                   <div
-                    className={`glass-strong rounded-2xl p-8 h-full ${
+                    className={`bg-background border border-border rounded-2xl p-8 h-full shadow-sm ${
                       isInView ? "animate-fade-up" : "opacity-0"
                     }`}
-                    style={{ animationDelay: `${i * 0.08}s` }}
+                    style={{ animationDelay: `${(i % visibleCount) * 0.08}s` }}
                   >
                     <div className="flex gap-1 mb-4">
                       {Array.from({ length: t.stars }).map((_, j) => (
@@ -155,14 +181,16 @@ const TestimonialsSection = () => {
             </div>
           </div>
 
-          {/* Dots */}
           <div className="flex justify-center gap-2 mt-8">
-            {Array.from({ length: maxIndex + 1 }).map((_, i) => (
+            {Array.from({ length: totalReal }).map((_, i) => (
               <button
                 key={i}
-                onClick={() => setCurrentIndex(i)}
+                onClick={() => {
+                  setIsTransitioning(true);
+                  setCurrentIndex(i);
+                }}
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  i === currentIndex ? "bg-primary w-6" : "bg-muted-foreground/30"
+                  i === realIndex ? "bg-primary w-6" : "bg-muted-foreground/30"
                 }`}
               />
             ))}
