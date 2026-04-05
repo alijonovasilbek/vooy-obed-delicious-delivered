@@ -108,7 +108,30 @@ const TestimonialsSection = () => {
   const realIndex = ((currentIndex % totalReal) + totalReal) % totalReal;
 
   return (
-    <section className="section-padding bg-background" ref={ref}>
+    <section className="section-padding bg-background relative overflow-hidden" ref={ref}>
+      {/* Watermark */}
+      <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
+        {Array.from({ length: 5 }).map((_, row) => (
+          <div key={row} className="flex">
+            {Array.from({ length: 4 }).map((_, col) => (
+              <span
+                key={col}
+                className="text-foreground/[0.04] font-black uppercase whitespace-nowrap"
+                style={{
+                  fontSize: "clamp(32px, 5vw, 56px)",
+                  letterSpacing: "0.05em",
+                  padding: "20px 28px",
+                  transform: "rotate(-20deg)",
+                  display: "inline-block",
+                  transformOrigin: "center",
+                }}
+              >
+                VOOYOBED
+              </span>
+            ))}
+          </div>
+        ))}
+      </div>
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <span className="text-primary font-semibold text-sm uppercase tracking-wider">Fikrlar</span>

@@ -33,29 +33,6 @@ const MenuSection = () => {
 
   return (
     <section id="menu" className="section-padding bg-secondary/50 relative overflow-hidden" ref={ref}>
-      {/* Watermark */}
-      <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
-        {Array.from({ length: 5 }).map((_, row) => (
-          <div key={row} className="flex">
-            {Array.from({ length: 4 }).map((_, col) => (
-              <span
-                key={col}
-                className="text-primary/[0.04] font-black uppercase whitespace-nowrap"
-                style={{
-                  fontSize: "clamp(32px, 5vw, 56px)",
-                  letterSpacing: "0.05em",
-                  padding: "20px 28px",
-                  transform: "rotate(-20deg)",
-                  display: "inline-block",
-                  transformOrigin: "center",
-                }}
-              >
-                VOOYOBED
-              </span>
-            ))}
-          </div>
-        ))}
-      </div>
       <div className="container mx-auto px-4">
         <div className="text-center mb-10">
           <h2 className="text-3xl md:text-5xl font-bold mb-4">

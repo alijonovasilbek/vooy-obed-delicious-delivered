@@ -27,29 +27,6 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Watermark */}
-      <div className="absolute inset-0 z-[4] pointer-events-none overflow-hidden select-none">
-        {Array.from({ length: 6 }).map((_, row) => (
-          <div key={row} className="flex" style={{ marginTop: row === 0 ? "5%" : 0 }}>
-            {Array.from({ length: 4 }).map((_, col) => (
-              <span
-                key={col}
-                className="text-white/[0.07] font-black uppercase whitespace-nowrap"
-                style={{
-                  fontSize: "clamp(28px, 5vw, 52px)",
-                  letterSpacing: "0.05em",
-                  padding: "18px 24px",
-                  transform: "rotate(-20deg)",
-                  display: "inline-block",
-                  transformOrigin: "center",
-                }}
-              >
-                VOOYOBED
-              </span>
-            ))}
-          </div>
-        ))}
-      </div>
       {/* Background images with Ken Burns effect */}
       {images.map((src, i) => {
         const isActive = i === current;
