@@ -3,15 +3,22 @@ import { CalendarCheck, Send } from "lucide-react";
 import heroBg1 from "@/assets/hero-bg.webp";
 import heroBg2 from "@/assets/hero-bg-2.webp";
 import heroBg3 from "@/assets/hero-bg-3.webp";
+import heroBg1Mobile from "@/assets/hero-bg-mobile.webp";
+import heroBg2Mobile from "@/assets/hero-bg-2-mobile.webp";
+import heroBg3Mobile from "@/assets/hero-bg-3-mobile.webp";
 
-const images = [heroBg1, heroBg2, heroBg3];
+const images = [
+  { desktop: heroBg1, mobile: heroBg1Mobile },
+  { desktop: heroBg2, mobile: heroBg2Mobile },
+  { desktop: heroBg3, mobile: heroBg3Mobile },
+];
 
 // Preload first hero image for LCP
 const preloadLink = document.createElement("link");
 preloadLink.rel = "preload";
 preloadLink.as = "image";
 preloadLink.type = "image/webp";
-preloadLink.href = heroBg1;
+preloadLink.href = heroBg1Mobile; // mobile first
 document.head.appendChild(preloadLink);
 
 const HeroSection = () => {
@@ -53,10 +60,12 @@ const HeroSection = () => {
           >
             {isVisible && (
               <img
-                src={src}
+                src={src.desktop}
+                srcSet={`${src.mobile} 768w, ${src.desktop} 1920w`}
+                sizes="100vw"
                 alt="Uzbek cuisine"
-                width={1280}
-                height={900}
+                width={1920}
+                height={1080}
                 className="w-full h-full object-cover"
                 loading={i === 0 ? "eager" : "lazy"}
                 fetchPriority={i === 0 ? "high" : "low"}
