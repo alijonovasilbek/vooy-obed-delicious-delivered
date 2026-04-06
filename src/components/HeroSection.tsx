@@ -47,9 +47,12 @@ const HeroSection = () => {
               <img
                 src={src}
                 alt="Uzbek cuisine"
-                width={1920}
-                height={1080}
+                width={1280}
+                height={900}
                 className="w-full h-full object-cover"
+                loading={i === 0 ? "eager" : "lazy"}
+                fetchPriority={i === 0 ? "high" : "low"}
+                decoding={i === 0 ? "sync" : "async"}
                 style={{
                   animation: isActive ? "kenBurnsIn 11s ease-out forwards" : undefined,
                   transform: isPrev ? "scale(1.15)" : "scale(1)",
