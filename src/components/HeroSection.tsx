@@ -6,6 +6,14 @@ import heroBg3 from "@/assets/hero-bg-3.webp";
 
 const images = [heroBg1, heroBg2, heroBg3];
 
+// Preload first hero image for LCP
+const preloadLink = document.createElement("link");
+preloadLink.rel = "preload";
+preloadLink.as = "image";
+preloadLink.type = "image/webp";
+preloadLink.href = heroBg1;
+document.head.appendChild(preloadLink);
+
 const HeroSection = () => {
   const [current, setCurrent] = useState(0);
   const [prev, setPrev] = useState<number | null>(null);
