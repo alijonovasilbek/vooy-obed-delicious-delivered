@@ -1,14 +1,14 @@
 import { useInView } from "./useInView";
 import { Utensils, Sandwich, Salad, Droplets, CalendarX } from "lucide-react";
 
-import foodPlov from "@/assets/food-plov.jpg";
-import foodChicken from "@/assets/food-chicken.jpg";
-import foodGolubtsi from "@/assets/food-golubtsi.jpg";
-import foodLagman from "@/assets/food-lagman.jpg";
-import foodShashlik from "@/assets/food-shashlik.jpg";
-import foodManti from "@/assets/food-manti.jpg";
-import foodSomsa from "@/assets/food-somsa.jpg";
-import foodKabob from "@/assets/food-kabob.jpg";
+import foodPlov from "@/assets/food-plov.webp";
+import foodChicken from "@/assets/food-chicken.webp";
+import foodGolubtsi from "@/assets/food-golubtsi.webp";
+import foodLagman from "@/assets/food-lagman.webp";
+import foodShashlik from "@/assets/food-shashlik.webp";
+import foodManti from "@/assets/food-manti.webp";
+import foodSomsa from "@/assets/food-somsa.webp";
+import foodKabob from "@/assets/food-kabob.webp";
 
 const bonusTags = [
   { label: "Taom", icon: Utensils },
