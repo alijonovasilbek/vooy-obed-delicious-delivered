@@ -113,7 +113,7 @@ const HeroSection = () => {
         >
           <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse shrink-0" />
           <span className="text-primary-foreground/90 text-xs md:text-sm font-medium">
-            09:00 – 14:00 &nbsp;|&nbsp; Yetkazish: 12:30 – 13:30
+            09:00 - 14:00 &nbsp;|&nbsp; Yetkazish: 12:30 - 13:30
           </span>
         </div>
 
@@ -146,7 +146,6 @@ const HeroSection = () => {
           </a>
         </div>
       </div>
-
     </section>
   );
 };

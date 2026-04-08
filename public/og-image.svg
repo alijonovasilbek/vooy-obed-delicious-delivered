@@ -5,36 +5,26 @@
       <stop offset="100%" style="stop-color:#2d1200"/>
     </linearGradient>
   </defs>
-  
-  <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  
-  <!-- Red accent bar left -->
-  <rect x="0" y="0" width="8" height="630" fill="#ef1010"/>
-  
-  <!-- Logo circle -->
-  <circle cx="160" cy="200" r="80" fill="white"/>
-  <circle cx="160" cy="200" r="74" fill="white"/>
-  <text x="160" y="185" text-anchor="middle" font-family="Arial Black" font-weight="900" font-size="28" fill="#1a1a1a">Vo<tspan fill="#ef1010">o</tspan>y</text>
-  <rect x="110" y="196" width="100" height="28" rx="5" fill="#ef1010"/>
-  <text x="160" y="215" text-anchor="middle" font-family="Arial Black" font-weight="900" font-size="18" fill="white">obed</text>
 
-  <!-- Main title -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="0" y="0" width="8" height="630" fill="#ef1010"/>
+
+  <rect x="80" y="120" width="160" height="160" rx="48" fill="#ef1010"/>
+  <circle cx="192" cy="160" r="12" fill="#f6bd60"/>
+  <path d="M123 158h26l20 61 20-61h26l-37 96h-18l-37-96Z" fill="#ffffff"/>
+
   <text x="80" y="330" font-family="Arial Black" font-weight="900" font-size="88" fill="white">Tushlik</text>
   <text x="80" y="420" font-family="Arial Black" font-weight="900" font-size="88" fill="white">kerakmi?</text>
+  <text x="80" y="480" font-family="Arial" font-size="28" fill="#ffffff99">Har kuni yangi menyu | 100% Halol | Tez yetkazish</text>
 
-  <!-- Subtitle -->
-  <text x="80" y="480" font-family="Arial" font-size="28" fill="#ffffff99">Har kuni yangi menyu • 100% Halol • Tez yetkazish</text>
-
-  <!-- Phone -->
   <rect x="80" y="510" width="380" height="55" rx="27" fill="#ef1010"/>
   <text x="270" y="543" text-anchor="middle" font-family="Arial Black" font-weight="900" font-size="22" fill="white">+998 33 316 13 13</text>
 
-  <!-- Right side decorative circles -->
   <circle cx="950" cy="315" r="240" fill="#ef1010" opacity="0.15"/>
   <circle cx="950" cy="315" r="180" fill="#ef1010" opacity="0.1"/>
-  <text x="950" y="350" text-anchor="middle" font-family="Arial" font-size="160">🍽️</text>
+  <rect x="855" y="220" width="190" height="190" rx="56" fill="#ef1010"/>
+  <circle cx="1010" cy="260" r="14" fill="#f6bd60"/>
+  <path d="M905 266h31l24 72 24-72h31l-44 113h-22l-44-113Z" fill="#ffffff"/>
 
-  <!-- URL bottom right -->
   <text x="1120" y="610" text-anchor="end" font-family="Arial" font-size="22" fill="#ffffff55">vooyobed.com</text>
 </svg>
