@@ -27,9 +27,9 @@ const Header = () => {
       <div className="container mx-auto flex items-center justify-between px-4 md:px-8">
         <a href="#" className="flex items-center gap-2 text-xl font-bold">
           <img
-            src="/logo.svg"
+            src="/logo.png"
             alt="Vooy Obed"
-            className="w-8 h-8 rounded-full object-cover"
+            className="w-10 h-10 object-contain"
           />
           <span className={scrolled ? "text-foreground" : "text-primary-foreground"}>
             <span className="text-primary">Vooy</span> Obed
