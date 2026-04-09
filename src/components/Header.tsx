@@ -29,7 +29,7 @@ const Header = () => {
           <img
             src="/logo.png"
             alt="Vooy Obed"
-            className="w-10 h-10 object-contain"
+            className="w-9 h-9 rounded-full object-cover"
           />
           <span className={scrolled ? "text-foreground" : "text-primary-foreground"}>
             <span className="text-primary">Vooy</span> Obed

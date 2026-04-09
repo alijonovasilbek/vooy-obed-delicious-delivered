@@ -94,7 +94,7 @@ const HeroSection = () => {
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
         {/* Hide badge on mobile */}
         <div className="hidden md:inline-flex glass-dark items-center gap-2 px-4 py-2 rounded-full mb-8 animate-fade-up">
-          <img src="/logo.png" alt="Vooy Obed" className="w-8 h-8 object-contain" />
+          <img src="/logo.png" alt="Vooy Obed" className="w-7 h-7 rounded-full object-cover" />
           <span className="text-primary-foreground font-semibold text-sm">
             <span className="text-primary">Vooy</span> Obed
           </span>
