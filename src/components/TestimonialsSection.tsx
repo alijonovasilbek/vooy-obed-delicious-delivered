@@ -110,26 +110,28 @@ const TestimonialsSection = () => {
   return (
     <section className="section-padding bg-background relative overflow-hidden" ref={ref}>
       {/* Watermark */}
-      <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
-        {Array.from({ length: 5 }).map((_, row) => (
-          <div key={row} className="flex">
-            {Array.from({ length: 4 }).map((_, col) => (
-              <span
-                key={col}
-                className="text-foreground/[0.04] font-black uppercase whitespace-nowrap"
-                style={{
-                  fontSize: "clamp(32px, 5vw, 56px)",
-                  letterSpacing: "0.05em",
-                  padding: "20px 28px",
-                  transform: "rotate(-20deg)",
-                  display: "inline-block",
-                  transformOrigin: "center",
-                }}
-              >
-                VOOYOBED
-              </span>
-            ))}
-          </div>
+      <div
+        className="absolute pointer-events-none select-none"
+        style={{
+          inset: "-60px",
+          display: "grid",
+          gridTemplateColumns: "repeat(6, 1fr)",
+          gridTemplateRows: "repeat(6, 1fr)",
+          transform: "rotate(-20deg)",
+          transformOrigin: "center",
+          opacity: 0.045,
+        }}
+      >
+        {Array.from({ length: 36 }).map((_, i) => (
+          <span
+            key={i}
+            className="font-black uppercase text-foreground flex items-center justify-center whitespace-nowrap"
+            style={{ fontSize: "clamp(28px, 4vw, 48px)", letterSpacing: "0.06em" }}
+          >
+            VOOYOBED
+          </span>
+        ))}
+      </div>
         ))}
       </div>
       <div className="container mx-auto px-4">

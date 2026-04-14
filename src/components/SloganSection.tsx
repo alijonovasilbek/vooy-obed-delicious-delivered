@@ -6,26 +6,28 @@ const SloganSection = () => {
   return (
     <section className="py-16 overflow-hidden relative bg-background border-y border-border/40" ref={ref}>
       {/* Watermark */}
-      <div className="absolute pointer-events-none select-none overflow-hidden" style={{inset:0, width:"150%", left:"-25%"}}>
-        {Array.from({ length: 8 }).map((_, row) => (
-          <div key={row} className="flex">
-            {Array.from({ length: 10 }).map((_, col) => (
-              <span
-                key={col}
-                className="text-foreground/[0.04] font-black uppercase whitespace-nowrap"
-                style={{
-                  fontSize: "clamp(32px, 5vw, 56px)",
-                  letterSpacing: "0.05em",
-                  padding: "20px 28px",
-                  transform: "rotate(-20deg)",
-                  display: "inline-block",
-                  transformOrigin: "center",
-                }}
-              >
-                VOOYOBED
-              </span>
-            ))}
-          </div>
+      <div
+        className="absolute pointer-events-none select-none"
+        style={{
+          inset: "-60px",
+          display: "grid",
+          gridTemplateColumns: "repeat(6, 1fr)",
+          gridTemplateRows: "repeat(6, 1fr)",
+          transform: "rotate(-20deg)",
+          transformOrigin: "center",
+          opacity: 0.045,
+        }}
+      >
+        {Array.from({ length: 36 }).map((_, i) => (
+          <span
+            key={i}
+            className="font-black uppercase text-foreground flex items-center justify-center whitespace-nowrap"
+            style={{ fontSize: "clamp(28px, 4vw, 48px)", letterSpacing: "0.06em" }}
+          >
+            VOOYOBED
+          </span>
+        ))}
+      </div>
         ))}
       </div>
 
