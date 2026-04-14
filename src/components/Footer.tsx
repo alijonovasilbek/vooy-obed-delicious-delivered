@@ -1,18 +1,24 @@
 const Footer = () => (
-  <footer className="py-12 bg-foreground text-background">
-    <div className="container mx-auto px-4 text-center">
-      <div className="flex items-center justify-center gap-2 mb-4">
-        <span className="text-2xl">🍛</span>
-        <span className="text-xl font-bold">
-          <span className="text-primary">Vooy</span> Obed
-        </span>
+  <footer className="py-10 bg-foreground text-background">
+    <div className="container mx-auto px-4">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <a href="#" className="flex items-center gap-2 text-xl font-bold shrink-0">
+          <img
+            src="/logo.png"
+            alt="Vooy Obed"
+            className="w-9 h-9 rounded-full object-cover"
+          />
+          <span>
+            <span className="text-primary">Vooy</span> Obed
+          </span>
+        </a>
+        <p className="text-background/50 text-sm text-center sm:text-left">
+          Tez, mazali va ishonchli ovqat yetkazib berish
+        </p>
+        <p className="text-background/30 text-xs shrink-0">
+          © 2026 Vooy Obed
+        </p>
       </div>
-      <p className="text-background/60 text-sm max-w-md mx-auto mb-4">
-        Vooy Obed — tez, mazali va ishonchli ovqat yetkazib berish xizmati
-      </p>
-      <p className="text-background/30 text-xs">
-        © 2026 Vooy Obed. Barcha huquqlar himoyalangan.
-      </p>
     </div>
   </footer>
 );

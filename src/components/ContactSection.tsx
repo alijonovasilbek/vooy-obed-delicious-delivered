@@ -8,7 +8,7 @@ const ContactSection = () => {
     <section id="contact" className="section-padding" ref={ref}>
       <div className="container mx-auto px-4 text-center">
         <h2
-          className={`text-3xl md:text-5xl font-bold mb-12 max-w-lg mx-auto leading-tight ${isInView ? "animate-fade-up" : "opacity-0"}`}
+          className={`text-xl md:text-2xl font-semibold mb-10 max-w-md mx-auto leading-relaxed ${isInView ? "animate-fade-up" : "opacity-0"}`}
         >
           <span className="text-foreground">Qo'ng'iroq qiling yoki Telegram orqali yozing —</span>{" "}
           <span className="text-primary">tez javob beramiz!</span>
