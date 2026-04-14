@@ -30,10 +30,10 @@ const FeaturesSection = () => {
   return (
     <section id="features" className="section-padding bg-secondary/50 relative overflow-hidden" ref={ref}>
       {/* Watermark */}
-      <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
-        {Array.from({ length: 5 }).map((_, row) => (
+      <div className="absolute pointer-events-none select-none overflow-hidden" style={{inset:0, width:"150%", left:"-25%"}}>
+        {Array.from({ length: 8 }).map((_, row) => (
           <div key={row} className="flex">
-            {Array.from({ length: 4 }).map((_, col) => (
+            {Array.from({ length: 10 }).map((_, col) => (
               <span
                 key={col}
                 className="text-foreground/[0.04] font-black uppercase whitespace-nowrap"
