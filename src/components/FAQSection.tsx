@@ -22,7 +22,7 @@ const faqs = [
   },
   {
     q: "Yetkazib berish bepulmi?",
-    a: "Har kungi bonuslar va ma'lum summadan oshgan buyurtmalar uchun yetkazib berish pullik. To'liq ma'lumot uchun @vooyobedadmin ga yozing.",
+    a: "11:30 gacha buyurtma berganlarga yetkazib berish — TEKIN! Undan keyin berilgan buyurtmalar uchun yetkazib berish pullik. To'liq ma'lumot uchun @vooyobedadmin ga yozing.",
   },
   {
     q: "Menyu har kuni o'zgaradimi?",
@@ -30,7 +30,7 @@ const faqs = [
   },
   {
     q: "To'lov qanday usulda amalga oshiriladi?",
-    a: "Naqd pul, Click, Payme va bank kartasi orqali to'lash mumkin.",
+    a: "Naqd pul, Click, Payme, bank kartasi va bank o'tkazmasi orqali to'lash mumkin.",
   },
   {
     q: "Yakshanba kunlari ham ishlaysizmi?",
