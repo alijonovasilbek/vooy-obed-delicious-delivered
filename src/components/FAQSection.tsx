@@ -25,7 +25,7 @@ const faqs = [
     a: "11:30 gacha buyurtma berganlarga yetkazib berish — TEKIN! Undan keyin berilgan buyurtmalar uchun yetkazib berish pullik. To'liq ma'lumot uchun @vooyobedadmin ga yozing.",
   },
   {
-    q: "Menyu har kuni o'zgaradimi?",
+    q: "Taomnoma har kuni o'zgaradimi?",
     a: "Ha, har kuni yangi taomnoma tayyorlanadi. Bugungi menyuni Telegram kanalimizda ko'rishingiz mumkin.",
   },
   {
@@ -42,7 +42,7 @@ const FAQSection = () => {
   const { ref, isInView } = useInView();
 
   return (
-    <section id="faq" className="section-padding bg-secondary/50 relative z-10" ref={ref}>
+    <section id="faq" className="section-padding bg-background relative z-10" ref={ref}>
       <div className="container mx-auto px-4 max-w-3xl">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 text-primary font-semibold text-sm mb-2">
