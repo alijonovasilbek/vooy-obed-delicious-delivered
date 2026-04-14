@@ -4,18 +4,18 @@ import { useInView } from "./useInView";
 const steps = [
   {
     icon: MessageCircle,
-    title: "Buyurtma bering",
-    desc: "Telegram yoki telefon orqali buyurtma bering",
+    title: "Telegram yoki telefon orqali buyurtma bering",
+    desc: "",
   },
   {
     icon: Truck,
-    title: "Yetkazib beramiz",
-    desc: "12:30 – 13:30 oralig'ida ofis yoki uyingizga",
+    title: "12:30 – 13:30 oralig'ida ishxona yoki uyingizga yetkazib beramiz",
+    desc: "",
   },
   {
     icon: UtensilsCrossed,
-    title: "Mazali tushlik!",
-    desc: "Issiq va mazali tushlik enjoy qiling!",
+    title: "Issiq va mazali tushliklarimizdan rohatlaning",
+    desc: "",
   },
 ];
 
@@ -50,7 +50,7 @@ const HowItWorksSection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-20">
           <h2 className="text-3xl md:text-5xl font-bold">
-            Qanday <span className="text-primary italic">Buyurtma</span> Beraman?
+            Buyurtma berish tartibi!
           </h2>
         </div>
 

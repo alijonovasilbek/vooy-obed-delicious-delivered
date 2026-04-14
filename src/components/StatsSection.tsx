@@ -3,13 +3,12 @@ import { useInView } from "./useInView";
 
 const stats = [
   { target: 5000, suffix: "+", label: "Mamnun mijozlar", countUp: true },
-  { target: 365, suffix: "", label: "Kun davomida xizmat", countUp: true },
+  { target: 6, suffix: "", label: "Haftada ish kuni", countUp: true },
   { target: 50, suffix: "+", label: "Xilma-xil taomlar", countUp: true },
-  { target: 30, suffix: " daq", label: "O'rtacha yetkazish", countUp: false },
 ];
 
 function useCountUp(target: number, isInView: boolean, countUp: boolean, duration = 2000) {
-  const [value, setValue] = useState(countUp ? 0 : 60);
+  const [value, setValue] = useState(0);
   const started = useRef(false);
 
   useEffect(() => {
@@ -62,7 +61,7 @@ const StatsSection = () => {
     <section className="py-20" ref={ref}>
       <div className="container mx-auto px-4">
         <div className="glass-strong rounded-3xl p-8 md:p-16 max-w-5xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+          <div className="grid grid-cols-3 gap-6 md:gap-8">
             {stats.map((s, i) => (
               <StatItem key={s.label} stat={s} index={i} isInView={isInView} />
             ))}

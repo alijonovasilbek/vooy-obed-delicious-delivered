@@ -4,8 +4,8 @@ import { useInView } from "./useInView";
 const features = [
   {
     icon: CalendarDays,
-    title: "Har kuni yangi menyu",
-    desc: "Har kuni turli xil mazali taomlar tayyorlanadi — bir xillik yo'q!",
+    title: "O'zgaruvchan Taomnoma",
+    desc: "Har kuni turli xil mazali taomlar tayyorlanadi.",
   },
   {
     icon: ChefHat,
@@ -20,7 +20,7 @@ const features = [
   {
     icon: ShieldCheck,
     title: "100% Halol va sifatli",
-    desc: "Faqat toza va sifatli mahsulotlar ishlatiladi. Halol kafolatlanadi.",
+    desc: "Faqat barra va sifatli mahsulotlar ishlatiladi. Halolligi kafolatlanadi.",
   },
 ];
 
