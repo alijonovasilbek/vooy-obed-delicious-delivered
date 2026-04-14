@@ -42,7 +42,7 @@ const FAQSection = () => {
   const { ref, isInView } = useInView();
 
   return (
-    <section id="faq" className="section-padding bg-secondary/50" ref={ref}>
+    <section id="faq" className="section-padding bg-secondary/50 relative z-10" ref={ref}>
       <div className="container mx-auto px-4 max-w-3xl">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 text-primary font-semibold text-sm mb-2">

@@ -5,7 +5,7 @@ const ContactSection = () => {
   const { ref, isInView } = useInView();
 
   return (
-    <section id="contact" className="section-padding" ref={ref}>
+    <section id="contact" className="section-padding relative z-10 bg-background" ref={ref}>
       <div className="container mx-auto px-4 text-center">
         <h2
           className={`text-xl md:text-2xl font-semibold mb-10 max-w-md mx-auto leading-relaxed ${isInView ? "animate-fade-up" : "opacity-0"}`}

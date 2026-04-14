@@ -108,12 +108,14 @@ const HeroSection = () => {
         </h1>
 
         <div
-          className="glass-dark inline-flex items-center gap-2 px-4 py-2.5 rounded-full mb-6 animate-fade-up whitespace-nowrap"
+          className="glass-dark inline-flex items-center gap-2 px-4 py-2.5 rounded-full mb-6 animate-fade-up"
           style={{ animationDelay: "0.3s" }}
         >
           <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse shrink-0" />
-          <span className="text-primary-foreground/90 text-xs md:text-sm font-medium">
-            Buyurtma qabul qilish 9:00 - 11:30 &nbsp;|&nbsp; Yetkazish: 12:30 - 13:30
+          <span className="text-primary-foreground/90 text-xs md:text-sm font-medium text-center">
+            <span className="block md:hidden">Buyurtma: 9:00 - 11:30</span>
+            <span className="block md:hidden">Yetkazish: 12:30 - 13:30</span>
+            <span className="hidden md:inline whitespace-nowrap">Buyurtma qabul qilish 9:00 - 11:30 &nbsp;|&nbsp; Yetkazish: 12:30 - 13:30</span>
           </span>
         </div>
 
