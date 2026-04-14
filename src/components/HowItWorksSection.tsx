@@ -28,16 +28,16 @@ const HowItWorksSection = () => {
       <div
         className="absolute pointer-events-none select-none"
         style={{
-          inset: "-60px",
+          inset: "-100px",
           display: "grid",
-          gridTemplateColumns: "repeat(6, 1fr)",
-          gridTemplateRows: "repeat(6, 1fr)",
+          gridTemplateColumns: "repeat(7, 1fr)",
+          gridTemplateRows: "repeat(7, 1fr)",
           transform: "rotate(-20deg)",
           transformOrigin: "center",
           opacity: 0.045,
         }}
       >
-        {Array.from({ length: 36 }).map((_, i) => (
+        {Array.from({ length: 49 }).map((_, i) => (
           <span
             key={i}
             className="font-black uppercase text-foreground flex items-center justify-center whitespace-nowrap"
@@ -45,8 +45,6 @@ const HowItWorksSection = () => {
           >
             VOOYOBED
           </span>
-        ))}
-      </div>
         ))}
       </div>
       <div className="container mx-auto px-4">
