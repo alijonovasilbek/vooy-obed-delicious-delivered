@@ -9,9 +9,11 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import ContactSection from "@/components/ContactSection";
 import FAQSection from "@/components/FAQSection";
 import Footer from "@/components/Footer";
+import GlobalWatermark from "@/components/GlobalWatermark";
 
 const Index = () => (
   <div className="min-h-screen">
+    <GlobalWatermark />
     <Header />
     <HeroSection />
     <FeaturesSection />

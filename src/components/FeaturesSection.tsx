@@ -29,32 +29,6 @@ const FeaturesSection = () => {
 
   return (
     <section id="features" className="section-padding bg-secondary/50 relative overflow-hidden" ref={ref}>
-      {/* Watermark */}
-      <div
-        className="absolute pointer-events-none select-none"
-        style={{
-          top: "-50%",
-          left: "-50%",
-          right: "-50%",
-          bottom: "-50%",
-          display: "grid",
-          gridTemplateColumns: "repeat(8, 1fr)",
-          gridTemplateRows: "repeat(10, 1fr)",
-          transform: "rotate(-20deg)",
-          transformOrigin: "center",
-          opacity: 0.045,
-        }}
-      >
-        {Array.from({ length: 80 }).map((_, i) => (
-          <span
-            key={i}
-            className="font-black uppercase text-foreground flex items-center justify-center whitespace-nowrap"
-            style={{ fontSize: "clamp(28px, 4vw, 48px)", letterSpacing: "0.06em" }}
-          >
-            VOOYOBED
-          </span>
-        ))}
-      </div>
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
