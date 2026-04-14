@@ -58,7 +58,31 @@ const StatsSection = () => {
   const { ref, isInView } = useInView();
 
   return (
-    <section className="py-20" ref={ref}>
+    <section className="py-20 relative overflow-hidden" ref={ref}>
+      {/* Watermark */}
+      <div className="absolute pointer-events-none select-none overflow-hidden" style={{inset:0, width:"150%", left:"-25%"}}>
+        {Array.from({ length: 8 }).map((_, row) => (
+          <div key={row} className="flex">
+            {Array.from({ length: 10 }).map((_, col) => (
+              <span
+                key={col}
+                className="text-foreground/[0.04] font-black uppercase whitespace-nowrap"
+                style={{
+                  fontSize: "clamp(32px, 5vw, 56px)",
+                  letterSpacing: "0.05em",
+                  padding: "20px 28px",
+                  transform: "rotate(-20deg)",
+                  display: "inline-block",
+                  transformOrigin: "center",
+                }}
+              >
+                VOOYOBED
+              </span>
+            ))}
+          </div>
+        ))}
+      </div>
+
       <div className="container mx-auto px-4">
         <div className="glass-strong rounded-3xl p-8 md:p-16 max-w-5xl mx-auto">
           <div className="grid grid-cols-3 gap-6 md:gap-8">
